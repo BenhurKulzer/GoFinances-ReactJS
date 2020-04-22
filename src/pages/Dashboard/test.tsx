@@ -55,7 +55,10 @@ const Dashboard: React.FC = () => {
               <img src={income} alt="Income" />
             </header>
             <h1 data-testid="balance-income">
-              {formatValue(parseFloat(balance.income))}
+              {new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(parseFloat(balance.income))}
             </h1>
           </Card>
           <Card>
@@ -64,7 +67,10 @@ const Dashboard: React.FC = () => {
               <img src={outcome} alt="Outcome" />
             </header>
             <h1 data-testid="balance-outcome">
-              {formatValue(parseFloat(balance.outcome))}
+              {new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(parseFloat(balance.outcome))}
             </h1>
           </Card>
           <Card total>
@@ -73,7 +79,10 @@ const Dashboard: React.FC = () => {
               <img src={total} alt="Total" />
             </header>
             <h1 data-testid="balance-total">
-              {formatValue(parseFloat(balance.total))}
+              {new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(parseFloat(balance.total))}
             </h1>
           </Card>
         </CardContainer>
@@ -95,7 +104,10 @@ const Dashboard: React.FC = () => {
                   <td className="title">{transaction.title}</td>
                   <td className={transaction.type}>
                     {transaction.type === 'outcome' ? '- ' : null}
-                    {formatValue(parseFloat(transaction.value.toString()))}
+                    {new Intl.NumberFormat('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                    }).format(parseFloat(transaction.value.toString()))}
                   </td>
                   <td>{transaction.category.title}</td>
                   <td>
